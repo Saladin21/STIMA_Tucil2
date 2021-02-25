@@ -1,2 +1,2 @@
-# Tugas Kecil 2 Strategui Algoritma
-$ Topological Sort
+# Tugas Kecil 2 Strategi Algoritma
+ Topological Sort
