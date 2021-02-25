@@ -1,11 +1,11 @@
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 #include "node.hpp"
-#include "vector"
+#include "list"
 
 class Graph{
     private:
-        vector<Node> Nodes;
+        list<Node> Nodes;
 
     public:
         Graph();
@@ -16,8 +16,6 @@ class Graph{
         void deleteEdge(Node& N1, Node& N2);
         Node& getNode(int id);
         Node& getNode(string name);
-        Node& getNodeZeroInDegree();
-        bool zeroInDegreeExist();
         void printGraph();
         void printInDegree();
         list<int> getZeroNodes();

@@ -10,6 +10,7 @@ int main(){
     G.addNode("N3");
     G.addNode("N4");
     G.addNode("N5");
+    G.addNode("N6");
     G.addEdge(G.getNode("N3"), G.getNode("N1"));
     G.addEdge(G.getNode("N1"), G.getNode("N2"));
     G.addEdge(G.getNode("N4"), G.getNode("N2"));
@@ -17,19 +18,7 @@ int main(){
     G.addEdge(G.getNode("N3"), G.getNode("N4"));
     G.addEdge(G.getNode("N2"), G.getNode("N5"));
     G.addEdge(G.getNode("N4"), G.getNode("N5"));
-    G.printGraph();
-    cout << endl;
-    G.printInDegree();
-    cout << endl;
-    //topologicalSort(G);
-    G.getNode("N1").printTrail();
-    G.deleteNode(G.getNode("N3"));
-    G.printInDegree();
-    cout << endl;
-    G.getNode("N1").printTrail();
-    G.deleteNode(G.getNode("N1"));
-    G.printInDegree();
-
+    topologicalSort(G);
     
     return 0;
 }
@@ -38,17 +27,13 @@ void topologicalSort(Graph& G){
     list<int> temp;
     for (int i =1; i<=8 ; i ++){
         temp = G.getZeroNodes();
-        for (int k : temp){
-            cout << k << endl;
-        }
         if(temp.size() > 0){
             cout << "Semester " << i << ": ";
             for (int j : temp){
-                cout << G.getNode(j).getName();
+                cout << G.getNode(j).getName() << " ";
                 G.deleteNode(G.getNode(j));
             }
             cout << endl;
-            G.printInDegree();
         }
         else if(G.countNodes() > 0){
             cout << "gagal, tidak ada lagi mata kuliah yang bisa diambil"<< endl;
